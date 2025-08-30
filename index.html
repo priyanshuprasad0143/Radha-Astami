@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radha Ashtami 2025 | A Devotional Web Experience</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Celebrate Radha Ashtami 2025 with divine bhajans, eternal stories, and a beautiful web experience dedicated to Shri Radha Rani.">
+    <meta name="keywords"
+        content="Radha Ashtami 2025, Radha Rani, Shri Krishna, Bhajans, Blogs, Devotional, Hindu Festival, Radhe Radhe">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter for text, Cormorant Garamond for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Styles and Animations -->
+    <style>
+        /* Custom font families */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff8f0;
+            /* Soft cream background */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-display {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Sticky Navbar Styling */
+        .navbar-sticky {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Morpankh (Peacock Feather) Hover Animation for Nav Links */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '🦚';
+            position: absolute;
+            font-size: 1.2rem;
+            left: 50%;
+            bottom: -20px;
+            transform: translateX(-50%) rotate(30deg);
+            opacity: 0;
+            transition: opacity 0.3s ease, bottom 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            opacity: 1;
+            bottom: -15px;
+        }
+
+        .nav-link:hover {
+            color: #ec4899;
+            /* Pink-500 */
+        }
+
+        /* Hero Section Gradient and Floating Elements */
+        .hero-bg {
+            background: linear-gradient(135deg, #fbcfe8 0%, #ffffff 50%, #fde68a 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .floating-element {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.5;
+        }
+
+        .lotus {
+            font-size: 5rem;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .morpankh {
+            font-size: 4rem;
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .lotus-2 {
+            font-size: 3rem;
+            bottom: 15%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .morpankh-2 {
+            font-size: 6rem;
+            bottom: 10%;
+            right: 5%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Animated Card Glow */
+        .card-glow {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .card-glow::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 1.2rem;
+            /* slightly larger than card's border-radius */
+            background: conic-gradient(from 180deg at 50% 50%, #f472b6, #fde047, #a78bfa, #f472b6);
+            filter: blur(15px);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .card-glow:hover::before {
+            opacity: 0.8;
+        }
+
+        .card-glow:hover {
+            transform: translateY(-8px) scale(1.03);
+        }
+
+        /* Blog Modal Animation */
+        #blog-reader {
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+
+        #blog-reader.open {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Animated Dividers in Blog */
+        .divider-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            color: #ec4899;
+        }
+
+        .divider-icon::before,
+        .divider-icon::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ec4899, transparent);
+        }
+
+        /* Glowing Diya Animation */
+        .diya-flame {
+            width: 20px;
+            height: 30px;
+            background-color: #fde047;
+            /* amber-300 */
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            box-shadow: 0 0 20px 10px #fde047, 0 0 40px 20px #f59e0b;
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+
+            0%,
+            100% {
+                transform: scaleY(1) scaleX(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scaleY(0.95) scaleX(1.05);
+                opacity: 0.9;
+            }
+        }
+
+        /* Footer Morpankh Animation */
+        .footer-morpankh {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float-footer 10s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float-footer {
+            0% {
+                transform: translateX(-100%) translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateX(50vw) translateY(-20px) rotate(180deg);
+            }
+
+            100% {
+                transform: translateX(100vw) translateY(0px) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+
+    <!-- Header & Navbar -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold font-display text-pink-500">🌸 Radha Prem</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-lg font-medium">Home</a>
+                <a href="#music" class="nav-link text-lg font-medium">Music</a>
+                <a href="#blogs" class="nav-link text-lg font-medium">Blogs</a>
+                <a href="#about" class="nav-link text-lg font-medium">About</a>
+                <a href="#contact" class="nav-link text-lg font-medium">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-3xl text-pink-500">☰</button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur-sm">
+            <a href="#home" class="block py-3 px-6 text-center text-lg hover:bg-pink-100">Home</a>
+            <a href="#music" class="block py-3 px-6 text-center text-lg hover:bg-pink-100">Music</a>
+            <a href="#blogs" class="block py-3 px-6 text-center text-lg hover:bg-pink-100">Blogs</a>
+            <a href="#about" class="block py-3 px-6 text-center text-lg hover:bg-pink-100">About</a>
+            <a href="#contact" class="block py-3 px-6 text-center text-lg hover:bg-pink-100">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
+            <div id="hero-parallax-bg" class="absolute inset-0">
+                <div class="floating-element lotus"><img width="200px" src="morpankh.png" alt=""></div>
+                <div class="floating-element morpankh">🦚</div>
+                <div class="floating-element lotus-2">🦚</div>
+                <div class="floating-element morpankh-2"><img width="200px" src="morpankh.png" alt=""></div>
+            </div>
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h1 data-aos="fade-down" class="text-5xl md:text-8xl font-bold text-pink-600 font-display">Celebrate
+                    Radha Ashtami 2025</h1>
+                <p data-aos="fade-up" data-aos-delay="200"
+                    class="mt-4 text-lg md:text-2xl text-gray-600 max-w-3xl mx-auto">Listen to divine bhajans & explore
+                    the eternal stories of Shri Radha Ji's divine appearance.</p>
+                <div data-aos="fade-up" data-aos-delay="400" class="mt-8 flex justify-center items-center space-x-4">
+                    <a href="#music"
+                        class="bg-pink-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">🎶
+                        Start Listening</a>
+                    <a href="#blogs"
+                        class="bg-white text-pink-500 border-2 border-pink-500 px-8 py-3 rounded-full text-lg font-semibold hover:bg-pink-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">📖
+                        Read Blogs</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Music Section (Bhajans) -->
+        <section id="music" class="py-20 bg-pink-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold font-display text-pink-800">Divine Melodies</h2>
+                    <p class="mt-2 text-lg text-gray-600">Immerse yourself in the blissful ocean of Radha-Krishna
+                        bhajans.</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex justify-center space-x-2 md:space-x-4 mb-10" data-aos="fade-up" data-aos-delay="100">
+                    <button class="filter-btn active bg-pink-500 text-white px-6 py-2 rounded-full">All</button>
+                    <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full hover:bg-pink-100">Morning
+                        Aarti</button>
+                    <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full hover:bg-pink-100">Love
+                        Songs</button>
+                    <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full hover:bg-pink-100">Special
+                        Bhajans</button>
+                </div>
+
+                <!-- Bhajan Grid -->
+                <div id="bhajan-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                    <!-- Video Card 1 -->
+                    <div id="bhajan-card" class=" card-glow bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up"
+                        data-category="Morning Aarti">
+                        <div class="relative">
+                            <iframe class="w-full h-56"
+                                src="https://www.youtube.com/embed/xs9H3rHh5gk?si=uPyiyGgtTMgH0O_t"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold font-display text-pink-700">Radhe Radhe Radhe Barsane Wali
+                                Radhe</h3>
+                            <p class="text-gray-600 mt-2">A beautiful morning bhajan to start your day.</p>
+                        </div>
+                    </div>
+                    <!-- Video Card 2 -->
+                    <div id="bhajan-card" class="card-glow bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up"
+                        data-aos-delay="100" data-category="Love Songs">
+                        <div class="relative">
+                            <iframe class="w-full h-56"
+                                src="https://www.youtube.com/embed/IfNr3leJEeI?si=b8W7LRz1E6VHOBn8"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold font-display text-pink-700">Shri Krishna Govind Hare Murari
+                            </h3>
+                            <p class="text-gray-600 mt-2">Feel the divine love of Radha and Krishna.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 3 -->
+                    <div id="bhajan-card" class=" card-glow bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up"
+                        data-aos-delay="200" data-category="Special Bhajans">
+                        <div class="relative">
+                            <iframe class="w-full h-56"
+                                src="https://www.youtube.com/embed/_CWcBWSKItk?si=Syatp-WV2X0EifIH"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold font-display text-pink-700">Radha Ashtami Special Bhajan</h3>
+                            <p class="text-gray-600 mt-2">A special bhajan dedicated to this auspicious day.</p>
+                        </div>
+                    </div>
+                    <!-- Add more cards as needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blogs" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold font-display text-pink-800">Eternal Stories</h2>
+                    <p class="mt-2 text-lg text-gray-600">Explore the divine leelas and teachings of Shri Radha.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog Card 1 -->
+                    <div class="blog-card card-glow bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer"
+                        data-aos="fade-up" data-title="The Significance of Radha Ashtami"
+                        data-content="Radha Ashtami celebrates the divine appearance of Shri Radha Rani, the eternal consort of Lord Krishna. She is the embodiment of pure love, devotion, and compassion. This day is observed with great fervor in Braj Bhoomi, especially in Barsana, her birthplace. Devotees fast, sing bhajans, and remember her divine qualities, seeking her grace and blessings for spiritual advancement. The festival reminds us of the supreme power of selfless love and devotion in the path of Bhakti Yoga.">
+                        <img src="https://i.ytimg.com/vi/nR8B4QH5dlk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCkiZgtJ-REJ3pf6naaBDbBmS4oPw" alt="Radha Ji"
+                            class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold font-display text-pink-700">The Significance of Radha Ashtami
+                            </h3>
+                            <p class="text-gray-600 mt-2">Discover why this day is so special for devotees worldwide.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Blog Card 2 -->
+                    <div class="blog-card card-glow bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer"
+                        data-aos="fade-up" data-aos-delay="100" data-title="The Story of Radha's Divine Appearance"
+                        data-content="The Puranas narrate the beautiful story of Radha's appearance. King Vrishabhanu and his wife Kirtida were childless and prayed for a daughter. One day, while bathing in the Yamuna, the king saw a golden lotus of a thousand petals, and within it, a beautiful baby girl. As he took her in his arms, Lord Brahma appeared and told him that this was the divine goddess Radha, who had appeared to be his daughter. However, she did not open her eyes until the baby Krishna was brought before her. Her first sight was of her beloved Krishna, symbolizing their eternal, inseparable bond.">
+                        <img src="https://i.ytimg.com/vi/eE8KbvDEhdE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAZy65pbSgwP-DpNPZxHvmSCPEy_A" alt="Divine Leela"
+                            class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold font-display text-pink-700">The Story of Radha's Divine
+                                Appearance</h3>
+                            <p class="text-gray-600 mt-2">A tale of love, devotion, and a divine lotus.</p>
+                        </div>
+                    </div>
+                    <!-- Blog Card 3 -->
+                    <div class="blog-card card-glow bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer"
+                        data-aos="fade-up" data-aos-delay="200" data-title="Teachings of Bhakti from Radha's Life"
+                        data-content="Shri Radha is the personification of 'Hladini Shakti,' the pleasure-giving energy of Lord Krishna. Her life teaches us the path of pure, unadulterated devotion (Bhakti). Her love for Krishna is selfless, unconditional, and without any expectation. This is the highest form of Bhakti, known as 'Prema Bhakti.' By meditating on her qualities—humility, service, and complete surrender—devotees can learn to purify their own hearts and develop a deep, loving relationship with the divine. Radha's path is the path of the heart, where love is the only language.">
+                        <img src="https://i.ytimg.com/vi/T-BWr6TazZE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAYFY27bBtEhZgwF3Wht_TLORS_BQ" alt="Bhakti Yoga"
+                            class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold font-display text-pink-700">Teachings of Bhakti from Radha's
+                                Life</h3>
+                            <p class="text-gray-600 mt-2">Learn the essence of pure devotion and selfless love.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-amber-50">
+            <div class="container mx-auto px-6">
+                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8"
+                    data-aos="zoom-in">
+                    <div class="md:w-1/2">
+                        <h2 class="text-4xl md:text-5xl font-bold font-display text-amber-800">Our Devotion</h2>
+                        <p class="mt-4 text-lg text-gray-600">This web experience is a humble offering at the lotus feet
+                            of Shri Radha Rani, the queen of Vrindavan and the heart of Shri Krishna. Our mission is to
+                            share her divine glory and inspire devotion in the hearts of all. May her grace shine upon
+                            you always. Radhe Radhe!</p>
+                        <div class="mt-8 flex flex-col items-center">
+                            <div class="diya-flame"></div>
+                            <div class="w-24 h-4 bg-amber-700 rounded-b-full"></div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img style="height: 550px; width: -webkit-fill-available;" src="Radha Rani Painting.png"
+                            alt="Radha Rani Painting" class="rounded-xl shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gradient-to-t from-pink-200 to-amber-100 py-12 relative overflow-hidden">
+        <div class="footer-morpankh" style="left: 10%; animation-duration: 12s;">🦚</div>
+        <div class="footer-morpankh" style="left: 50%; animation-duration: 8s; animation-delay: 2s;">🦚</div>
+        <div class="footer-morpankh" style="left: 80%; animation-duration: 15s; animation-delay: 5s;">🦚</div>
+        <div class="container mx-auto px-6 text-center text-pink-800">
+            <p class="text-2xl font-display font-semibold">Connect with Devotion</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="text-3xl hover:text-pink-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="#" class="text-3xl hover:text-pink-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                        </path>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                </a>
+                <a href="#" class="text-3xl hover:text-pink-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+            <p class="mt-6 text-sm">Made with ❤️ in devotion to Radha Ji | Radha Ashtami 2025</p>
+        </div>
+    </footer>
+
+    <!-- Blog Reader Modal -->
+    <div id="blog-reader"
+        class="fixed inset-0 bg-white/95 backdrop-blur-md z-50 p-6 md:p-12 overflow-y-auto transform translate-y-full opacity-0 pointer-events-none">
+        <button id="close-blog"
+            class="absolute top-6 right-6 text-4xl text-pink-500 hover:text-pink-700">&times;</button>
+        <div class="container mx-auto max-w-3xl">
+            <h2 id="blog-title" class="text-4xl md:text-5xl font-bold font-display text-pink-800 mb-8"></h2>
+            <div id="blog-content" class="text-lg text-gray-700 leading-relaxed space-y-6"></div>
+        </div>
+    </div>
+
+    <!-- GSAP (GreenSock Animation Platform) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+     <script src="main.js"></script>
+</body>
+
+</html>
